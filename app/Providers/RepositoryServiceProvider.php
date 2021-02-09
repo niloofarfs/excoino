@@ -5,9 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use App\Repository\UserRepositoryInterface;
+use App\Repository\CurrencyRepositoryInterface;
 use App\Repository\EloquentRepositoryInterface;
 use App\Repository\Eloquent\BaseRepository;
 use App\Repository\Eloquent\UserRepository;
+use App\Repository\Eloquent\CurrencyRepository;
 
 
 /** 
@@ -24,6 +26,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(CurrencyRepositoryInterface::class, CurrencyRepository::class);
         $this->app->bind(EloquentRepositoryInterface::class, BaseRepository::class);
     }
 }
