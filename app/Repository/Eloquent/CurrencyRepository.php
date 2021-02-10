@@ -17,4 +17,18 @@ class CurrencyRepository extends BaseRepository implements CurrencyRepositoryInt
     {
         parent::__construct($model);
     }
+
+    /**
+     * Save model to the database.
+     *
+     * @return bool
+     */
+    public function save(): bool
+    {
+        $this->model->code = $this->code;
+        $this->model->name = $this->name;
+        $this->model->country = $this->country;
+
+        return $this->model->save();
+    }
 }
